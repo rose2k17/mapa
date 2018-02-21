@@ -1,4 +1,4 @@
-package com.ecodeup.articulos.model;
+package com.envios.model;
 
 import java.util.Date;
 
@@ -15,9 +15,8 @@ public class Articulo {
 	private Date fecha;
 	private String remitente;
 	private String transportista;
-	private double precio;
 	
-	public Articulo(int id, String origen, String destino, String paquete, Date fecha, String remitente, String transportista,  double precio) {
+	public Articulo(int id, String origen, String destino, String paquete, Date fecha, String remitente, String transportista) {
 		this.id = id;
 		this.origen = origen;
 		this.destino = destino;
@@ -25,7 +24,6 @@ public class Articulo {
 		this.fecha = fecha;
 		this.remitente = remitente;
 		this.transportista = transportista;
-		this.precio = precio;
 	}
 
 	public int getId() {
@@ -84,11 +82,4 @@ public class Articulo {
 		this.transportista = transportista;
 	}
 
-	public double getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(double precio) {
-		this.precio = precio;
-	}
 }

@@ -9,43 +9,50 @@
 <body>
 	<h1>Registrar Artículo</h1>
 	<form action="adminArticulo?action=register" method="post">
-		<table border="1" align="center">
-		<tr>
-			<td>id:</a></td>		
-			<td><input type="text" name="id"/></td>	
-		</tr>
-		<tr>
-			<td>origen</td>
-			<td><jsp:include page="_googlemaps.jsp"></jsp:include><td>
-		</tr>
-		<tr>
-			<td>paquete:</a></td>		
-			<td><input type="text" name="paquete"/></td>	
-		</tr>
-		<tr>
-			<td>fecha:</a></td>		
-			<td><input type="Date" name="fecha"/></td>	
-		</tr>
-		<tr>
-			<td>Remitente:</a></td>		
-			<td><input type="text" name="remitente"/></td>	
-		</tr>
-		<tr>
-			<td>transportista:</a></td>		
-			<td><input type="text" name="transportista"/></td>	
-		</tr>
-		<tr>
-			<td>Precio:</a></td>		
-			<td><input type="text" name="precio"/></td>	
-		</tr>		
-		
-	</table>
-	<br>
-	<table border="0" align="center">
-		<tr>
-		<td><input type="submit" value="Agregar" name="agregar"></td>	
-		</tr>
-	
+		<table align="center">
+			<tr>
+				<td><input type="text" name="id" /></td>
+			</tr>
+			<tr>
+				<td><table>
+					<tr><td>origen</td></tr>
+					<tr><td>destino</td></tr>
+				</table>
+				</td>
+				<td><jsp:include page="_googlemaps.jsp"></jsp:include></td>
+			</tr>
+			<tr>
+				<td>paquete:</td>
+				<td><select name="paquete">
+						<option>Grande</option>
+						<option>Mediano</option>
+						<option>Pequeño</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>fecha:</td>
+				<td><input type="Date" name="fecha" /></td>
+			</tr>
+			<tr>
+				<td>Remitente:</td>
+				<td><input type="text" name="remitente" /></td>
+			</tr>
+			<tr>
+				<td>transportista:</td>
+				<td><input type="text" name="transportista" /></td>
+			</tr>
+			<tr>
+				<td>Precio:</td>
+				<td><input type="text" name="precio" /></td>
+			</tr>
+
+		</table>
+		<br>
+		<table border="0" align="center">
+			<tr>
+				<td><input type="submit" value="Agregar" name="agregar"></td>
+			</tr>
+		</table>
 	</form>
 </body>
 </html>

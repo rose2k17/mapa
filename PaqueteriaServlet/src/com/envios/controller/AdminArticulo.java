@@ -1,4 +1,4 @@
-package com.ecodeup.articulo.controller;
+package com.envios.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ecodeup.articulos.dao.ArticuloDAO;
-import com.ecodeup.articulos.model.Articulo;
+import com.envios.dao.ArticuloDAO;
+import com.envios.model.Articulo;
 
 /**
  * Servlet implementation class AdminArticulo
@@ -67,6 +67,9 @@ public class AdminArticulo extends HttpServlet {
 			case "mostrar":
 				mostrar(request, response);
 				break;
+			case "mostrarT":
+				mostrarT(request, response);
+				break;
 			case "buscar":
 				buscar(request, response);
 				break;
@@ -89,6 +92,17 @@ public class AdminArticulo extends HttpServlet {
 			e.getStackTrace();
 		}
 	}
+	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			//vamos al metodo get
+			doGet(request, response);
+	}
+	
 
 	private void buscar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher= request.getRequestDispatcher("/vista/buscar.jsp");
@@ -96,12 +110,7 @@ public class AdminArticulo extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	private void mostrarT (HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException{
 		//Var: origen y destino
 		String origen= request.getParameter("origen");
 		String destino= request.getParameter("destino");
@@ -131,7 +140,7 @@ public class AdminArticulo extends HttpServlet {
 
 	
 	private void registrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-		Articulo articulo = new Articulo(Integer.parseInt(request.getParameter("id")),request.getParameter("origen"), request.getParameter("destino"), request.getParameter("paquete"),parse(request.getParameter("fecha")), request.getParameter("remitente"),  request.getParameter("transportista"),  Double.parseDouble(request.getParameter("precio")));
+		Articulo articulo = new Articulo(Integer.parseInt(request.getParameter("id")),request.getParameter("origen"), request.getParameter("destino"), request.getParameter("paquete"),parse(request.getParameter("fecha")), request.getParameter("remitente"),  request.getParameter("transportista"));
 		articuloDAO.insertar(articulo);
 		System.out.println("prueba2");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
@@ -165,7 +174,7 @@ public class AdminArticulo extends HttpServlet {
 	}
 	
 	private void editar(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException{
-		Articulo articulo = new Articulo(Integer.parseInt(request.getParameter("id")),request.getParameter("origen"), request.getParameter("destino"), request.getParameter("paquete"),parse(request.getParameter("fecha")), request.getParameter("remitente"),  request.getParameter("transportista"),  Double.parseDouble(request.getParameter("precio")));
+		Articulo articulo = new Articulo(Integer.parseInt(request.getParameter("id")),request.getParameter("origen"), request.getParameter("destino"), request.getParameter("paquete"),parse(request.getParameter("fecha")), request.getParameter("remitente"),  request.getParameter("transportista"));
 		articuloDAO.actualizar(articulo);
 		index(request, response);
 	}

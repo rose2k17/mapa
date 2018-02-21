@@ -1,18 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Administrar Artículos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Administrar ArtÃ­culos</title>
 </head>
 <body>
-	<h1>Lista  Artículos</h1>
+	<h1>Lista  ArtÃ­culos</h1>
 	<table>
 		<tr>
-			<td><a href="adminArticulo?action=index" >Ir al menú</a> </td>
+			<td><a href="adminArticulo?action=index" >Ir al menÃº</a> </td>
 		</tr>
 	</table>
 	
@@ -39,7 +39,7 @@
 				<td><c:out value="${articulo.remitente}"/></td>
 				<td><c:out value="${articulo.transportista}"/></td>
 				<td><c:out value="${articulo.precio}"/></td>
-				<td><a href="adminArticulo?action=showedit&id=<c:out value="${articulo.id}" />">Ver Mapa</a></td>
+				<td><a href="vista/mapa.jsp?origen=${articulo.origen}&destino=${articulo.destino}">Ver Mapa</a></td>
 				<td><a href="adminArticulo?action=eliminar&id=<c:out value="${articulo.id}"/>">Eliminar</a> </td>				
 			</tr>
 		</c:forEach>

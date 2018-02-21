@@ -8,7 +8,7 @@
     <title>Busscar</title>
   </head>
   <body>
-  	<form action="adminArticulo" method="post">
+  	<form action="adminArticulo?action=mostrarT" method="post">
 	  <jsp:include page="_googlemaps.jsp"></jsp:include>
 	  <input type=submit value=Mostrar>
   	</form>
